@@ -1,31 +1,34 @@
-from abc import ABC, abstractclassmethod
+import random
+import time
+import os
 
-class Animal(ABC):
-    def __init__(self, name, velocidad):
+
+class Caballo(object):
+    def __init__(self, name):
         self.name = name
         self.posicion = 0
-        self.velocidad = velocidad
     
-    
-    def caminar (self, tiempo):
-        self.posicion = self.velocidad * tiempo
+    def corre(self):
+     p =   random.randint(1, 5)
+     self.posicion = self.posicion + p
 
-    
+    def dibuja(self):
+        x = ("_" * self.posicion)  + f"[{self.name}]"
+        print(x)
 
-class Perro(Animal):
-    def __init__(self, name, ):
-        super().__init__(name, 2)
+pista = [Caballo ("Yatasto"),Caballo ("MAga"),Caballo ("Pedro"),Caballo ("Feca"),Caballo ("Ggog"),Caballo ("Lizz"),]        
 
-class Gato(Animal):
-    def __init__(self, name,):
-        super().__init__(name, 1)
+termino = False
 
 
-c = Perro("Rodro")
-g = Gato("Pedro")
-
-c.caminar(10)
-g.caminar(10)
-
-print(c.posicion)
-print(g.posicion)
+while not termino:
+   i = 0
+   os.system('cls')
+   while i < len(pista):
+      pista[i].corre()
+      pista[i].dibuja()
+      if pista[i].posicion > 100:
+         termino = True
+      i = i + 1 
+   
+   time.sleep(0.5)
