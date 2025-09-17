@@ -4,19 +4,27 @@ import os
 
 
 class Caballo(object):
-    def __init__(self, name):
+    def __init__(self, name, f ,t):
         self.name = name
         self.posicion = 0
+        self.f = f
+        self.t = t
     
-    def corre(self):
-     p =   random.randint(1, 5)
+    def corre(self, ):
+     p =   random.randint(self.f, self.t)
      self.posicion = self.posicion + p
 
     def dibuja(self):
         x = ("_" * self.posicion)  + f"[{self.name}]"
         print(x)
 
-pista = [Caballo ("Yatasto"),Caballo ("MAga"),Caballo ("Pedro"),Caballo ("Feca"),Caballo ("Ggog"),Caballo ("Lizz"),]        
+pista = [Caballo ("Yatasto", 1 , 5),
+         Caballo ("MAga", 1 , 5),
+         Caballo ("Pedro",1 , 5),
+         Caballo ("Feca", 1 , 6),
+         Caballo ("Gogo", 1 , 5),
+         Caballo ("Lizz", 1 , 5),
+         ]        
 
 termino = False
 
